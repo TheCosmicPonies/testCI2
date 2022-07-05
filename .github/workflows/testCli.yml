@@ -2,10 +2,20 @@ name: Java CI
 on: [push]
 jobs:
   build:
+    strategy:
+      matrix:
+        java-version: [ 8, 11, 16, 17 ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Maven Compil
+      - name: Set up JDK ${{ matrix.java-version }}
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ matrix.java-version }}
+          distribution: 'adopt'
+      - name: Maven Compils Matrix
+        env:
+          java-version: ${{ matrix.java-version }}
         run: mvn package
       - uses: actions/upload-artifact@v3
         with:
