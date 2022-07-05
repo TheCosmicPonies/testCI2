@@ -1,0 +1,13 @@
+name: Java CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Maven Compil
+        run: mvn package
+      - uses: actions/upload-artifact@v3
+        with:
+          name: new-artifact-saved
+          path: /target/java-getting-started-1.0.jar
