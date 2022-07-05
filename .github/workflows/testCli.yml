@@ -15,7 +15,7 @@ jobs:
           distribution: 'adopt'
       - name: Maven Compils Matrix
         env:
-          java-version: ${{ matrix.java-version }}
+          JAVA_VERSION: ${{ matrix.java-version }}
         run: mvn package
       - uses: actions/upload-artifact@v3
         with:
