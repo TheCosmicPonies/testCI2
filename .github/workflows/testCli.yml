@@ -10,4 +10,4 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: new-artifact-saved
-          path: /target/java-getting-started-1.0.jar
+          path: /home/runner/work/testCI2/testCI2/target/java-getting-started-1.0.jar
